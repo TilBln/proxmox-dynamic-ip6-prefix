@@ -1,7 +1,8 @@
 # proxmox-dynamic-ip6-prefix
 ### A simple script for ProxmoxVE checking the network interface for currently working global-scope ip6 prefix and automatically adjusting network config.
 
-Every 10 minutes, the script reads the current ip6-prefix using rdisc6, then checks if it's a new one and in case it is, changes static ip6 in your /etc/network/interfaces
+Every 10 minutes, the script reads the current ip6-prefix using rdisc6, then checks if it's a new one and in case it is, changes static ip6 in your 
+```/etc/network/interfaces```
 
 **How to use:**
 
