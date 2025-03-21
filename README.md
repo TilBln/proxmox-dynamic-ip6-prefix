@@ -15,7 +15,9 @@ iface vmbr0 inet6 static
   address xxxx:
   gateway xxxx::
 ```
-a fitting address and the gateway address are stated in the output of rdisc6 vmbr0.
+a fitting address and the gateway address are stated in the output of rdisc6 vmbr0:
+- add a suffix like 100 between :: and /64 of your prefix stated in the command output, that's your address
+- in the last line of the command output, use the link-local address behind "from" (e.g. fe80::xxx) as your gateway
 
 then do ```ifreload -a```
 
