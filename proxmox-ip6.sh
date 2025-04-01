@@ -12,7 +12,7 @@ LAST_PREFIX=""
 while true; do
  
  # checking the current IPv6 prefix of the interface, change 12 with the linenumber where the current prefix is stated in command output of rdisk in shell, mine is in line 12 of the output
- NEW_PREFIX=$(rdisc6 $INTERFACE | sed -n '12s/^[^:]*: *\([^ ]*\)::.*/\1/p' | cut -d ' ' -f1)
+ NEW_PREFIX=$(rdisc6 -q $INTERFACE | grep -v -E '^fd|^fc' | sort | head -n 1 | sed 's/\/64$//' | sed 's/:://')
 
  # check if there is a new prefix
  if [[ -n "$NEW_PREFIX" && "$NEW_PREFIX" != "$LAST_PREFIX" ]]; then
