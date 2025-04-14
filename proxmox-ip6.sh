@@ -11,7 +11,7 @@ LAST_PREFIX=""
 
 while true; do
  
- # checking the current IPv6 prefix of the interface, change 12 with the linenumber where the current prefix is stated in command output of rdisk in shell, mine is in line 12 of the output
+ # checking the current IPv6 prefix of the interface given, there might be displayed already expired ones - by sorting them the script ensures to use the newest one which is always working
  NEW_PREFIX=$(rdisc6 -q $INTERFACE | grep -v -E '^fd|^fc' | sort | head -n 1 | sed 's/\/64$//' | sed 's/:://')
 
  # check if there is a new prefix
